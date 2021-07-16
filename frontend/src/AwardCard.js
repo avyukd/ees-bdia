@@ -7,6 +7,9 @@ import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 //props contains one object: awardInfo
 //all elements accessed using props.awardInfo['COL_NAME']
 const urlValidate = url => {
+    if(url === null){
+        return "";
+    }
     if(url.substring(0,4)!=="http"){
         return "http://"+url;
     }else{

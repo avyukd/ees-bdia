@@ -20,7 +20,6 @@ const sample_request_data={
               "Description"
         ],
     "filters":{
-        "keywords": ["common working file"],
         "time_period": [
             {
                 "start_date": "2008-01-01",

@@ -19,22 +19,25 @@ async function searchCallback(response){
 }
 
 const App = () => {
-
   const [searchResponseObj, setSearchResponseObj] = useState({"results":[]});
   const [filterDataObj, setFilterDataObj] = useState({});
   const [loading, setLoading] = useState(false);
+  const [maxResults, setMaxResults] = useState(5);
 
   const retrieveFilter = data => {
     console.log(data)
     request_default_obj.filters.keywords = data.keywords.split(", ");
+    request_default_obj.filters.agencies = data.agencies;
     const newRDO = {...request_default_obj}
+    console.log(newRDO);
     setFilterDataObj(newRDO);
     setLoading(true);
+    setMaxResults(parseInt(data.maxNumberOfResults));
   }
   //request for sba example: https://web.sba.gov/pro-net/search/dsp_profile.cfm?DUNS=831761957
-  const maxResults = 5;
   let cnt = 0;
   useEffect(() => {
+    console.log("body",filterDataObj);
     if(filterDataObj != {}){
       axios.post(AWARD_SEARCH_REQUEST_URL, filterDataObj).then(async (response) => {
         let filteredAwards = {"results":[]}
