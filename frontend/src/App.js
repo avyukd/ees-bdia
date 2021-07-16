@@ -1,10 +1,11 @@
 import axios from "axios";
-import {Container, Grid, Card, Typography} from '@material-ui/core';
+import {Container, Grid, Card, Typography, Divider} from '@material-ui/core';
 import { useEffect, useState } from "react";
 import request_default_obj from "./request_default";
 import AwardCard from "./AwardCard";
 import AwardFilterForm from "./AwardFilterForm";
 import keys from "./keys";
+import UploadFileForm from "./UploadFileForm";
 
 const AWARD_SEARCH_REQUEST_URL = "https://api.usaspending.gov/api/v2/search/spending_by_award/";
 
@@ -34,6 +35,11 @@ const App = () => {
     setLoading(true);
     setMaxResults(parseInt(data.maxNumberOfResults));
   }
+
+  const retrieveFilename = data => {
+    console.log("FILE_DATA",data); 
+  }
+
   //request for sba example: https://web.sba.gov/pro-net/search/dsp_profile.cfm?DUNS=831761957
   let cnt = 0;
   useEffect(() => {
@@ -71,21 +77,26 @@ const App = () => {
 
   return (
     <div>
-      <Container>
-        <Container>
-          <AwardFilterForm onSubmit={retrieveFilter}/>
-        </Container>
-        <Container>
-          {
-            loading ? 
-            "Loading..." :
-            searchResponseObj.results.length > 0 ?
-            searchResponseObj.results.map((el) =>
-              (<div><AwardCard awardInfo={el}/></div>)
-            ) : "No results."
-          }
-        </Container>
-      </Container>
+      <Grid container alignContent="center">
+          <Grid item sm={6}>
+            <UploadFileForm onSubmit={retrieveFilename}/>
+          </Grid>
+          <Grid item sm={6}>
+            <Container>
+              <AwardFilterForm onSubmit={retrieveFilter}/>
+            </Container>
+            <Container>
+              {
+                loading ? 
+                "Loading..." :
+                searchResponseObj.results.length > 0 ?
+                searchResponseObj.results.map((el) =>
+                  (<div><AwardCard awardInfo={el}/></div>)
+                ) : "No results."
+              }
+            </Container>
+          </Grid>
+      </Grid>
     </div>
   );
 
