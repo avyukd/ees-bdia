@@ -4,7 +4,7 @@ import requests
 import json
 from bs4 import BeautifulSoup
 from flask_cors import CORS, cross_origin
-
+import utils
 
 #create instance of Flask class
 app = Flask(__name__)
@@ -93,4 +93,5 @@ def get_company_info():
     except:
         return jsonify({})
 app.run(debug=True) 
+
 
