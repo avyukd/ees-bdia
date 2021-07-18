@@ -1,10 +1,13 @@
 #create flask api
-from flask import Flask, jsonify, request
+from flask import Flask, jsonify, request, after_this_request
 import requests
 import json
 from bs4 import BeautifulSoup
 from flask_cors import CORS, cross_origin
-import utils
+from utils import parse_RFP, cleanup
+import os 
+import atexit
+#import flask after_this_request
 
 #create instance of Flask class
 app = Flask(__name__)
@@ -92,6 +95,19 @@ def get_company_info():
         return jsonify(responseobj)
     except:
         return jsonify({})
+
+#figure out how to delete file after it closes
+@app.route('/api/parser', methods = ['POST'])
+def upload_file():
+    file = request.files['uploadedFile']
+    file.save(file.filename)
+    ordered_sentences = parse_RFP(file.filename)
+    file.close()
+    #os.remove(file.filename)
+
+    return jsonify({'sentences': ordered_sentences[:10]})
+
+atexit.register(cleanup)
 app.run(debug=True) 
 
 

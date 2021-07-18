@@ -8,11 +8,8 @@ import keys from "./keys";
 import UploadFileForm from "./UploadFileForm";
 
 const AWARD_SEARCH_REQUEST_URL = "https://api.usaspending.gov/api/v2/search/spending_by_award/";
-
-const ENTITY_SEARCH_URL = "https://api.sam.gov/entity-information/v2/entities";
-
-const SBA_SEARCH_URL = "https://web.sba.gov/pro-net/search/dsp_profile.cfm";
-
+//const ENTITY_SEARCH_URL = "https://api.sam.gov/entity-information/v2/entities";
+//const SBA_SEARCH_URL = "https://web.sba.gov/pro-net/search/dsp_profile.cfm";
 const COMPANYINFO_URL = "http://127.0.0.1:5000/api/company_info"
 
 async function searchCallback(response){
@@ -24,6 +21,7 @@ const App = () => {
   const [filterDataObj, setFilterDataObj] = useState({});
   const [loading, setLoading] = useState(false);
   const [maxResults, setMaxResults] = useState(5);
+  const [sentences, setSentences] = useState([]);
 
   const retrieveFilter = data => {
     console.log(data)
@@ -36,8 +34,8 @@ const App = () => {
     setMaxResults(parseInt(data.maxNumberOfResults));
   }
 
-  const retrieveFilename = data => {
-    console.log("FILE_DATA",data); 
+  const retrieveParsedContent = data => {
+    setSentences(data.sentences);
   }
 
   //request for sba example: https://web.sba.gov/pro-net/search/dsp_profile.cfm?DUNS=831761957
@@ -79,7 +77,12 @@ const App = () => {
     <div>
       <Grid container alignContent="center">
           <Grid item sm={6}>
-            <UploadFileForm onSubmit={retrieveFilename}/>
+            <UploadFileForm onSubmit={retrieveParsedContent}/>
+            {
+              sentences.length > 0 ?
+              sentences.map((sentence) => (<Card><Typography variant="body2">{sentence}</Typography></Card>)) : 
+              ""
+            }
           </Grid>
           <Grid item sm={6}>
             <Container>

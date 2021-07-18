@@ -15,6 +15,13 @@ general_keywords = set(["key","personnel","resume","set-aside","set aside",
               "labor", "category", "time", "materials", "firm", "fixed", "price", "ffp",
                "evaluation","instruction","criteria"])
 
+def cleanup():
+    #remove all pdf files in current directory
+    print("In Cleanup...")
+    for file in os.listdir():
+        if file.endswith(".pdf"):
+            os.remove(file)
+            
 def clean_sentence(s):
     s = s.lower()
     s = s.translate(str.maketrans('', '', string.punctuation))
@@ -27,10 +34,10 @@ def score_sentence(s):
     return (len(s.intersection(req_keywords)) > 0) * (len(s.intersection(subject_keywords)) > 0) * (len(s.intersection(general_keywords)))
 
 def parse_RFP(file):
-    extension = file.split(".")[-1]
+    extension = file.split(".")[-1].lower()
     all_sentences = []
     if extension == "pdf":
-        pdfFileObj = open(sample_file, 'rb')
+        pdfFileObj = open(file, 'rb')
         pdfReader = PyPDF2.PdfFileReader(pdfFileObj)
         solicitation_text = []
         for x in range(pdfReader.numPages):
