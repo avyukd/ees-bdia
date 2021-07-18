@@ -17,6 +17,11 @@ ENTITY_SEARCH_URL = "https://api.sam.gov/entity-information/v2/entities"
 
 SBA_SEARCH_URL = "https://web.sba.gov/pro-net/search/dsp_profile.cfm"
 
+#welcome screen
+@app.route('/')
+def welcome():
+    return 'Welcome to the Server!'
+
 @app.route('/api/company_info',methods=["GET"])
 def get_company_info():
     try:
