@@ -1,3 +1,7 @@
+
+#TODO: search SAM by legalBusinessName, get uei from response, search SBA
+
+
 #create flask api
 from flask import Flask, jsonify, request, after_this_request
 import requests
@@ -28,17 +32,17 @@ def get_company_info():
         app.logger.info('Processing request...')
 
         responseobj={}
-        if 'duns' in request.args:
-            duns = request.args['duns']
+        if 'name' in request.args:
+            name = request.args['name']
         else:
-            return "Error: No DUNS provided. Please specify DUNS."
+            return "Error: No Name provided. Please specify Name."
         if 'api_key' in request.args:
             api_key = request.args['api_key']
         else:
             return "Error: No API Key provided. Please specify API Key."
         
         #call sam.gov entity search api
-        SAM_response = requests.get(ENTITY_SEARCH_URL, params={'ueiDUNS': duns, 'api_key': api_key});
+        SAM_response = requests.get(ENTITY_SEARCH_URL, params={'legalBusinessName': name, 'api_key': api_key})
         if SAM_response is None:
             return jsonify(responseobj)
         SAM_response = json.loads(SAM_response.text)
@@ -65,7 +69,8 @@ def get_company_info():
         "sba_8a_entrance": sba_8a_entrance, "sba_8a_exit": sba_8a_exit}
 
         #call sba.gov search api
-        SBA_response = requests.get(SBA_SEARCH_URL, params={'duns': duns})
+        ueiSAM = SAM_response['entityData'][0]['entityRegistration']["ueiSAM"]
+        SBA_response = requests.get(SBA_SEARCH_URL, params={'SAM_UEI': ueiSAM})
         if not SBA_response.ok:
             return jsonify(responseobj)
         SBA_response = SBA_response.text
