@@ -11,6 +11,7 @@ const AWARD_SEARCH_REQUEST_URL = "https://api.usaspending.gov/api/v2/search/spen
 //const ENTITY_SEARCH_URL = "https://api.sam.gov/entity-information/v2/entities";
 //const SBA_SEARCH_URL = "https://web.sba.gov/pro-net/search/dsp_profile.cfm";
 const COMPANYINFO_URL = "http://127.0.0.1:5000/api/company_info"
+//const COMPANYINFO_URL = "https://ees-bdia-backend.herokuapp.com/api/company_info"
 
 async function searchCallback(response){
 
@@ -41,16 +42,17 @@ const App = () => {
   //request for sba example: https://web.sba.gov/pro-net/search/dsp_profile.cfm?DUNS=831761957
   let cnt = 0;
   useEffect(() => {
-    console.log("body",filterDataObj);
     if(filterDataObj != {}){
       axios.post(AWARD_SEARCH_REQUEST_URL, filterDataObj).then(async (response) => {
         let filteredAwards = {"results":[]}
+        console.log(response.data.results);
         for(const award of response.data.results){
-          const DUNS = award["Recipient DUNS Number"];
-
+          //const DUNS = award["Recipient DUNS Number"];
+          const name = award["Recipient Name"];
+          console.log(award);
           const Company_info_response = await axios.get(COMPANYINFO_URL, {
             params : {
-              "duns" : DUNS,
+              "name" : name,
               "api_key": keys.SAM_API_KEY
             }
           })
@@ -76,14 +78,14 @@ const App = () => {
   return (
     <div>
       <Grid container alignContent="center">
-          <Grid item sm={6}>
+          {/* <Grid item sm={6}>
             <UploadFileForm onSubmit={retrieveParsedContent}/>
             {
               sentences.length > 0 ?
               sentences.map((sentence) => (<Card><Typography variant="body2">{sentence}</Typography></Card>)) : 
               ""
             }
-          </Grid>
+          </Grid> */}
           <Grid item sm={6}>
             <Container>
               <AwardFilterForm onSubmit={retrieveFilter}/>

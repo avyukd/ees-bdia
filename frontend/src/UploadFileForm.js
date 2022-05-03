@@ -3,7 +3,7 @@ import { useState } from 'react';
 import AddIcon from '@material-ui/icons/Add';
 import axios from "axios";
 
-const POST_URL = "http://127.0.0.1:5000/api/parser"
+const POST_URL = "https://ees-bdia-backend.herokuapp.com/api/parser"
 
 const UploadFileForm = props => {
     

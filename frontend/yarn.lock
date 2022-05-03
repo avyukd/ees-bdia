@@ -1552,6 +1552,72 @@
     estree-walker "^1.0.1"
     picomatch "^2.2.2"
 
+"@rpldy/life-events@^0.14.1":
+  version "0.14.1"
+  resolved "https://registry.yarnpkg.com/@rpldy/life-events/-/life-events-0.14.1.tgz#4d764703ee597310b05cb34386f4130019734a2f"
+  integrity sha512-RWBOKM7nfbbHnTvYEiNYXw1tnMBowT63hfIrzw9iMmWexgfAsj+pOwGbYjM8HNHwa2aw3tZAWwRkbNLsMN7TVw==
+  dependencies:
+    "@rpldy/shared" "^0.14.1"
+    is-promise "^4.0.0"
+
+"@rpldy/sender@^0.14.1":
+  version "0.14.1"
+  resolved "https://registry.yarnpkg.com/@rpldy/sender/-/sender-0.14.1.tgz#a55a5df354971727880420f4185c9f5367e46bbf"
+  integrity sha512-1gaOodem+qjgb4KjlWc6ToJb/oqjKbT2LepXgt4Rdjx6t0oeYS53FTGGXmO039XrfJJlf9szx7q7hAknAGXB8Q==
+  dependencies:
+    "@rpldy/shared" "^0.14.1"
+
+"@rpldy/shared-ui@^0.14.1":
+  version "0.14.1"
+  resolved "https://registry.yarnpkg.com/@rpldy/shared-ui/-/shared-ui-0.14.1.tgz#e8f3528683e630e9b349f254e669d88aa5329933"
+  integrity sha512-Sl1RP8E9/cIRTVn9xeTPCP2Y46QBAGlcYimDyee0jnsBPAFIX29oK8wDLf+6Gl6FT7wyvvSCXlPEa4ThvSHVHw==
+  dependencies:
+    "@rpldy/shared" "^0.14.1"
+    "@rpldy/uploader" "^0.14.1"
+
+"@rpldy/shared@^0.14.1":
+  version "0.14.1"
+  resolved "https://registry.yarnpkg.com/@rpldy/shared/-/shared-0.14.1.tgz#de09789e03df93979aa42b20933135c34431d2f1"
+  integrity sha512-yhA7QDT5M8g4LnhVjmR8YPJB240iCRULgQAP1en/l5bsYgWjesGEkOgshN5+vvsGGIor9N7fjR0n73ZlwU992g==
+  dependencies:
+    invariant "^2.2.4"
+    just-throttle "^1.1.0"
+
+"@rpldy/simple-state@^0.14.1":
+  version "0.14.1"
+  resolved "https://registry.yarnpkg.com/@rpldy/simple-state/-/simple-state-0.14.1.tgz#a6ac8896cf3f819e0bbda7ed6f228438a7909f07"
+  integrity sha512-32DsFVJO41WUiIDqCtQhtmePND3nZh13YjUXeHhbDTZy4ewzsQhMum4M0Hi8xWokojyXi7BGKzA8zAotSr2BLw==
+  dependencies:
+    "@rpldy/shared" "^0.14.1"
+
+"@rpldy/upload-drop-zone@^0.14.1":
+  version "0.14.1"
+  resolved "https://registry.yarnpkg.com/@rpldy/upload-drop-zone/-/upload-drop-zone-0.14.1.tgz#28854385e4db1d6d951176b84a7f96d6c23221cc"
+  integrity sha512-SCUowTXVEtK7CZ8YeVuDfbhRvaNjKBOwx3WLuShZZnMi6awdJBzg23hO9rgVFtuXe9U1PsXWQ45QcNSqxWbkZA==
+  dependencies:
+    "@rpldy/shared-ui" "^0.14.1"
+    html-dir-content "^0.3.2"
+
+"@rpldy/uploader@^0.14.1":
+  version "0.14.1"
+  resolved "https://registry.yarnpkg.com/@rpldy/uploader/-/uploader-0.14.1.tgz#612bacc48a487604bc0a6a4794cee888dff3bda7"
+  integrity sha512-nRrnGn3zFYWcfN6sH9g7DiMaJYPsVbwXn421HjtkNrnilWzGMQQDGsL4QxneRBvG2gYfS6gGy/HYI32+SzX2Tw==
+  dependencies:
+    "@rpldy/life-events" "^0.14.1"
+    "@rpldy/sender" "^0.14.1"
+    "@rpldy/shared" "^0.14.1"
+    "@rpldy/simple-state" "^0.14.1"
+
+"@rpldy/uploady@^0.14.1":
+  version "0.14.1"
+  resolved "https://registry.yarnpkg.com/@rpldy/uploady/-/uploady-0.14.1.tgz#3e8fe91d33e24b19dce270ff54379abd0d819eec"
+  integrity sha512-HhTqCLXbSUb32NEXBGTNIPc3UanQwMhzyFoCe4XH63ptenjd4A3yy21it9dgStij3yo9GhHzwVqm/0hGoHwtGA==
+  dependencies:
+    "@rpldy/life-events" "^0.14.1"
+    "@rpldy/shared" "^0.14.1"
+    "@rpldy/shared-ui" "^0.14.1"
+    "@rpldy/uploader" "^0.14.1"
+
 "@sinonjs/commons@^1.7.0":
   version "1.8.2"
   resolved "https://registry.yarnpkg.com/@sinonjs/commons/-/commons-1.8.2.tgz#858f5c4b48d80778fde4b9d541f27edc0d56488b"
@@ -5602,6 +5668,11 @@ html-comment-regex@^1.1.0:
   resolved "https://registry.yarnpkg.com/html-comment-regex/-/html-comment-regex-1.1.2.tgz#97d4688aeb5c81886a364faa0cad1dda14d433a7"
   integrity sha512-P+M65QY2JQ5Y0G9KKdlDpo0zK+/OHptU5AaBwUfAIDJZk1MYf32Frm84EcOytfJE0t5JvkAnKlmjsXDnWzCJmQ==
 
+html-dir-content@^0.3.2:
+  version "0.3.2"
+  resolved "https://registry.yarnpkg.com/html-dir-content/-/html-dir-content-0.3.2.tgz#3fed73cf7b6c11e882fcfda38b32a2e9c58d1339"
+  integrity sha512-a1EJZbvBGmmFwk9VxFhEgaHkyXUXKTkw0jr0FCvXKCqgzO1H0wbFQbbzRA6FhR3twxAyjqVc80bzGHEmKrYsSw==
+
 html-encoding-sniffer@^2.0.1:
   version "2.0.1"
   resolved "https://registry.yarnpkg.com/html-encoding-sniffer/-/html-encoding-sniffer-2.0.1.tgz#42a6dc4fd33f00281176e8b23759ca4e4fa185f3"
@@ -5901,6 +5972,13 @@ internal-slot@^1.0.3:
     has "^1.0.3"
     side-channel "^1.0.4"
 
+invariant@^2.2.4:
+  version "2.2.4"
+  resolved "https://registry.yarnpkg.com/invariant/-/invariant-2.2.4.tgz#610f3c92c9359ce1db616e538008d23ff35158e6"
+  integrity sha512-phJfQVBuaJM5raOpJjSfkiD6BpbCE4Ns//LaXl6wGYtUBY83nWS6Rf9tXm2e8VaK60JEjYldbPif/A2B1C2gNA==
+  dependencies:
+    loose-envify "^1.0.0"
+
 ip-regex@^2.1.0:
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/ip-regex/-/ip-regex-2.1.0.tgz#fa78bf5d2e6913c911ce9f819ee5146bb6d844e9"
@@ -6172,6 +6250,11 @@ is-potential-custom-element-name@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/is-potential-custom-element-name/-/is-potential-custom-element-name-1.0.0.tgz#0c52e54bcca391bb2c494b21e8626d7336c6e397"
   integrity sha1-DFLlS8yjkbssSUsh6GJtczbG45c=
+
+is-promise@^4.0.0:
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/is-promise/-/is-promise-4.0.0.tgz#42ff9f84206c1991d26debf520dd5c01042dd2f3"
+  integrity sha512-hvpoI6korhJMnej285dSg6nu1+e6uxs7zG3BYAm5byqDsgJNWwxzM6z6iZiAgQR4TJ30JmBTOwqZUw3WlyH3AQ==
 
 is-regex@^1.0.4, is-regex@^1.1.1:
   version "1.1.2"
@@ -6968,6 +7051,11 @@ jss@10.7.1, jss@^10.5.1:
     array-includes "^3.1.2"
     object.assign "^4.1.2"
 
+just-throttle@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/just-throttle/-/just-throttle-1.1.0.tgz#178d305ece9876a8a0759abd8d403aafcc6e4849"
+  integrity sha512-iePC/13XYX1Tyn9C6jY+DG3UEejkDvrKsw5xxgGhtGUwYWmoJm4CoKexscBKELOu3FTyCDzjr21ZJ67AXnz+bg==
+
 killable@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/killable/-/killable-1.0.1.tgz#4c8ce441187a061c7474fb87ca08e2a638194892"
@@ -7163,7 +7251,7 @@ loglevel@^1.6.8:
   resolved "https://registry.yarnpkg.com/loglevel/-/loglevel-1.7.1.tgz#005fde2f5e6e47068f935ff28573e125ef72f197"
   integrity sha512-Hesni4s5UkWkwCGJMQGAh71PaLUmKFM60dHvq0zi/vDhhrzuk+4GgNbTXJ12YYQJn6ZKBDNIjYcuQGKudvqrIw==
 
-loose-envify@^1.1.0, loose-envify@^1.4.0:
+loose-envify@^1.0.0, loose-envify@^1.1.0, loose-envify@^1.4.0:
   version "1.4.0"
   resolved "https://registry.yarnpkg.com/loose-envify/-/loose-envify-1.4.0.tgz#71ee51fa7be4caec1a63839f7e682d8132d30caf"
   integrity sha512-lyuxPGr/Wfhrlem2CL/UcnUc1zcqKAImBDzukY7Y5F/yQiNdko6+fRLevlw1HgMySw7f611UIY408EtxRSoK3Q==
