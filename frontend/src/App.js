@@ -10,8 +10,8 @@ import UploadFileForm from "./UploadFileForm";
 const AWARD_SEARCH_REQUEST_URL = "https://api.usaspending.gov/api/v2/search/spending_by_award/";
 //const ENTITY_SEARCH_URL = "https://api.sam.gov/entity-information/v2/entities";
 //const SBA_SEARCH_URL = "https://web.sba.gov/pro-net/search/dsp_profile.cfm";
-const COMPANYINFO_URL = "http://127.0.0.1:5000/api/company_info"
-//const COMPANYINFO_URL = "https://ees-bdia-backend.herokuapp.com/api/company_info"
+//const COMPANYINFO_URL = "http://127.0.0.1:5000/api/company_info"
+const COMPANYINFO_URL = "https://ees-bdia-backend.herokuapp.com/api/company_info"
 
 async function searchCallback(response){
 
